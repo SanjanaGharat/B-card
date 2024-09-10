@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <!-- Front matter required by Jekyll -->
+    ---
+    layout: default
+    title: Profile Card
+    ---
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Card</title>
@@ -9,7 +15,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes gradient-x {
-            0%, 100% {
+            0%,
+            100% {
                 background-position: 0% 50%;
             }
 
@@ -27,8 +34,9 @@
 </head>
 
 <body class="bg-slate-800 bg-gradient-animated text-black grid place-content-center h-screen">
+    <!-- Audio section with Jekyll path -->
     <audio autoplay loop>
-        <source src="bts_.mp3" type="audio/mpeg">
+        <source src="{{ '/assets/audio/bts_.mp3' | relative_url }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -42,7 +50,7 @@
         <!-- Profile Image with Dotted Border -->
         <div class="flex justify-center relative">
             <div class="rounded-full p-2 border-4 border-dotted border-orange-400">
-                <img class="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover" src="me.jpg" alt="Profile Image">
+                <img class="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover" src="{{ '/assets/images/me.jpg' | relative_url }}" alt="Profile Image">
             </div>
         </div>
 
