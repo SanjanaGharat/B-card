@@ -9,7 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes gradient-x {
-            0%, 100% {
+            0%,
+            100% {
                 background-position: 0% 50%;
             }
 
@@ -25,9 +26,9 @@
         }
 
         .flip-card {
-            width: 100%;
-            max-width: 450px;
-            height: auto;
+            position: relative;
+            width: 450px;
+            height: 800px;
             perspective: 1000px;
             cursor: pointer;
         }
@@ -70,7 +71,7 @@
     </style>
 </head>
 
-<body class="bg-slate-800 bg-gradient-animated text-black flex items-center justify-center h-screen p-4">
+<body class="bg-slate-800 bg-gradient-animated text-black grid place-content-center h-screen">
     <audio id="background-audio" autoplay loop>
         <source src="bts_.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -78,7 +79,7 @@
 
     <script>
         const audio = document.querySelector('#background-audio');
-        audio.volume = 0.1;
+        audio.volume = 0.1; // Set volume (0.0 to 1.0)
 
         document.addEventListener('click', () => {
             if (audio.paused) {
@@ -89,83 +90,90 @@
         });
     </script>
 
-    <div class="flip-card" id="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front bg-white dark:bg-black">
-                <div class="flex justify-center relative">
-                    <div class="rounded-full p-2 border-4 border-dotted border-orange-400">
-                        <img class="rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-cover" src="me.jpg" alt="Profile Image" id="front-image">
+    <div class="flex justify-center items-center h-full">
+        <div class="flip-card" id="flip-card">
+            <div class="flip-card-inner">
+                <!-- Front Side of the Card -->
+                <div class="flip-card-front bg-white dark:bg-black">
+                    <div class="flex justify-center relative">
+                        <div class="rounded-full p-2 border-4 border-dotted border-orange-400">
+                            <img class="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover" src="me.jpg" alt="Profile Image" id="front-image">
+                        </div>
+                    </div>
+
+                    <div class="text-xl sm:text-2xl text-center mt-4 sm:mt-6 font-mono font-bold text-black dark:text-white">
+                        <p>Sanjana Sajan Gharat</p>
+                    </div>
+                    <p class="uppercase text-sm sm:text-base text-center mt-2 text-black dark:text-white">
+                        Student &nbsp | &nbsp VIT BHOPAL University
+                    </p>
+                    <div class="bg-orange-400 h-1 sm:h-2 w-24 sm:w-40 mt-4 mx-auto"></div>
+                    <div class="flex flex-col items-start mt-6 sm:mt-8 space-y-4 text-black dark:text-white">
+                        <a href="https://www.google.com/maps/place/Your+Location" class="hover:text-blue-600 flex items-center">
+                            <i class="fas fa-map-marker-alt text-2xl sm:text-3xl"></i>
+                            <p class="ml-2 sm:ml-3 text-lg sm:text-xl">Navi-Mumbai, Maharashtra</p>
+                        </a>
+                        <a href="tel:+1234567890" class="hover:text-green-600 flex items-center">
+                            <i class="fas fa-phone-alt text-2xl sm:text-3xl"></i>
+                            <p class="ml-2 sm:ml-3 text-lg sm:text-xl">9619750636</p>
+                        </a>
+                        <a href="mailto:sanjanagharat16@gmail.com" class="hover:text-red-600 flex items-center">
+                            <i class="fas fa-envelope text-2xl sm:text-3xl"></i>
+                            <p class="ml-2 sm:ml-3 text-lg sm:text-xl">sanjanagharat16@gmail.com</p>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sanjana-gharat-b62752250/" class="hover:text-blue-600 flex items-center">
+                            <i class="fab fa-linkedin text-2xl sm:text-3xl"></i>
+                            <p class="ml-2 sm:ml-3 text-lg sm:text-xl">Sanjana Gharat</p>
+                        </a>
+                        <a href="https://github.com/SanjanaGharat" class="hover:text-lime-400 flex items-center">
+                            <i class="fab fa-github text-2xl sm:text-3xl"></i>
+                            <p class="ml-2 sm:ml-3 text-lg sm:text-xl">SanjanaGharat</p>
+                        </a>
+                        <a href="https://sanjanagharat.github.io/Myportfolio/" class="hover:text-blue-600 flex items-center">
+                            <i class="fas fa-globe text-2xl sm:text-3xl"></i>
+                            <p class="ml-2 sm:ml-3 text-lg sm:text-xl">Myportfolio</p>
+                        </a>
                     </div>
                 </div>
 
-                <div class="text-lg sm:text-xl md:text-2xl text-center mt-4 md:mt-6 font-mono font-bold text-black dark:text-white">
-                    <p>Sanjana Sajan Gharat</p>
-                </div>
-                <p class="uppercase text-xs sm:text-sm md:text-base text-center mt-2 text-black dark:text-white">
-                    Student &nbsp | &nbsp VIT BHOPAL University
-                </p>
-                <div class="bg-orange-400 h-1 md:h-2 w-16 md:w-40 mt-4 mx-auto"></div>
-                <div class="flex flex-col items-start mt-6 sm:mt-8 space-y-4 text-black dark:text-white">
-                    <a href="https://www.google.com/maps/place/Your+Location" class="hover:text-blue-600 flex items-center">
-                        <i class="fas fa-map-marker-alt text-lg sm:text-xl md:text-2xl"></i>
-                        <p class="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl">Navi-Mumbai, Maharashtra</p>
-                    </a>
-                    <a href="tel:+1234567890" class="hover:text-green-600 flex items-center">
-                        <i class="fas fa-phone-alt text-lg sm:text-xl md:text-2xl"></i>
-                        <p class="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl">9619750636</p>
-                    </a>
-                    <a href="mailto:sanjanagharat16@gmail.com" class="hover:text-red-600 flex items-center">
-                        <i class="fas fa-envelope text-lg sm:text-xl md:text-2xl"></i>
-                        <p class="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl">sanjanagharat16@gmail.com</p>
-                    </a>
-                    <a href="https://www.linkedin.com/in/sanjana-gharat-b62752250/" class="hover:text-blue-600 flex items-center">
-                        <i class="fab fa-linkedin text-lg sm:text-xl md:text-2xl"></i>
-                        <p class="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl">Sanjana Gharat</p>
-                    </a>
-                    <a href="https://github.com/SanjanaGharat" class="hover:text-lime-400 flex items-center">
-                        <i class="fab fa-github text-lg sm:text-xl md:text-2xl"></i>
-                        <p class="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl">SanjanaGharat</p>
-                    </a>
-                    <a href="https://sanjanagharat.github.io/Myportfolio/" class="hover:text-blue-600 flex items-center">
-                        <i class="fas fa-globe text-lg sm:text-xl md:text-2xl"></i>
-                        <p class="ml-2 sm:ml-3 text-base sm:text-lg md:text-xl">Myportfolio</p>
-                    </a>
-                </div>
-            </div>
-
-            <div class="flip-card-back bg-black shadow-lg">
-                <div class="grid place-items-start">
-                    <div class="rounded-full p-2 border-4 border-dotted border-orange-400">
-                        <img class="rounded-full w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-cover" src="me.jpg" alt="Profile Image" id="back-image">
+                <!-- Back Side of the Card -->
+                <div class="flip-card-back bg-black shadow-lg">
+                    <!-- Image Section at the Top -->
+                    <div class="grid place-items-start">
+                        <div class="rounded-full p-2 border-4 border-dotted border-orange-400">
+                            <img class="rounded-full w-32 h-32 sm:w-40 sm:h-40 object-cover" src="me.jpg" alt="Profile Image" id="back-image">
+                        </div>
                     </div>
-                </div>
 
-                <div class="skills text-center mt-8">
-                    <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-white">Skills</h2>
-                    <div class="flex flex-col items-center mt-4 space-y-2">
-                        <span class="text-gray-300 text-sm sm:text-base">JavaScript</span>
-                        <span class="text-gray-300 text-sm sm:text-base">HTML & CSS</span>
-                        <span class="text-gray-300 text-sm sm:text-base">React</span>
-                        <span class="text-gray-300 text-sm sm:text-base">Node.js</span>
+                    <!-- Skills Section Beneath the Image -->
+                    <div class="skills text-center mt-8">
+                        <h2 class="text-xl font-bold text-white">Skills</h2>
+                        <div class="flex flex-col items-center mt-4 space-y-2">
+                            <span class="text-gray-300">JavaScript</span>
+                            <span class="text-gray-300">HTML & CSS</span>
+                            <span class="text-gray-300">React</span>
+                            <span class="text-gray-300">Node.js</span>
+                        </div>
+                        <button class="bg-yellow-500 mt-20 p-6 rounded-2xl">Buy me a coffee</button>
                     </div>
-                    <button class="bg-yellow-500 mt-10 p-4 rounded-xl sm:mt-20 sm:p-6">Buy me a coffee</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Flip card only when the profile images are clicked
         const flipCard = document.getElementById('flip-card');
         const frontImage = document.getElementById('front-image');
         const backImage = document.getElementById('back-image');
 
         frontImage.addEventListener('click', (event) => {
-            event.stopPropagation();
+            event.stopPropagation(); // Stop the event from bubbling up
             flipCard.classList.toggle('flipped');
         });
 
         backImage.addEventListener('click', (event) => {
-            event.stopPropagation();
+            event.stopPropagation(); // Stop the event from bubbling up
             flipCard.classList.toggle('flipped');
         });
     </script>
